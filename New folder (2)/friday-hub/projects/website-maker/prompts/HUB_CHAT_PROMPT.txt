@@ -1,0 +1,10 @@
+FRIDAY HUB LINKS
+• Live Hub (Vercel): https://<vercel-app>.vercel.app
+• Repo: https://github.com/<you>/friday-hub
+• Project Path: /projects/website-maker/
+• Decisions Ledger: /ledger/decisions.jsonl
+
+Rules for this chat:
+- Output full files and specify exact repo paths.
+- Summarize decisions as one-line JSON for the ledger.
+- When ready, I will paste artifacts into the repo and open a PR.
