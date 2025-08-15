@@ -20,5 +20,5 @@ jobs:
           git config --global user.email "friday-bot@example.com"
           git fetch origin main
           git checkout main
-          git merge --no-ff auto-updates -m "Auto-merge from auto-updates"
-          git push origin main
+          git merge --no-ff auto-updates -m "Auto-merge from auto-updates" || echo "ℹ️ Nothing to merge"
+          git push origin main || echo "ℹ️ Nothing to push"
