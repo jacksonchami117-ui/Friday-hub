@@ -1,0 +1,9 @@
+{
+  "name": "friday-hub",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:hub": "node tools/build-hub.js"
+  },
+  "devDependencies": {}
+}
