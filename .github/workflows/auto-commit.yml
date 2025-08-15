@@ -1,0 +1,29 @@
+name: Auto Commit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - auto-updates
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Friday Bot"
+          git config --global user.email "friday-bot@example.com"
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Automated update from Friday"
+            git push origin auto-updates
+          else
+            echo "No changes to commit"
