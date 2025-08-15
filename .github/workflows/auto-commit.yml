@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.GH_PAT }}
 
@@ -19,11 +20,13 @@ jobs:
           git config --global user.name "Friday Bot"
           git config --global user.email "friday-bot@example.com"
 
-      - name: Commit and push changes
+      - name: Commit and push changes if any
         run: |
           git add .
-          if ! git diff-index --quiet HEAD; then
+          if git diff --cached --quiet; then
+            echo "ℹ️ No changes to commit — skipping"
+          else
             git commit -m "Automated update from Friday"
             git push origin auto-updates
-          else
-            echo "No changes to commit"
+            echo "✅ Changes committed and pushed"
+          fi
